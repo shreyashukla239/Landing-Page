@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShreyaWorks - We Build Websites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #333;
+        }
+
+       
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 64px;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 10px rgba(0,0,0,0.08);
+        }
+
+        .site-logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a2e;
+            text-decoration: none;
+        }
+
+        .site-logo span { color: #e74c3c; }
+
+        header nav { display: flex; gap: 28px; align-items: center; }
+
+        header nav a {
+            text-decoration: none;
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        header nav a:hover { color: #e74c3c; }
+
+        .hdr-btn {
+            background: #e74c3c;
+            color: #fff !important;
+            padding: 10px 22px;
+            border-radius: 4px;
+            font-weight: 600 !important;
+        }
+
+        .hdr-btn:hover { background: #c0392b; opacity: 1; }
+
+        
+        .hero-section {
+            min-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(145deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+       
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(231,76,60,0.07);
+            top: -100px;
+            right: -100px;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.03);
+            bottom: -80px;
+            left: -60px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(231,76,60,0.2);
+            color: #e74c3c;
+            border: 1px solid rgba(231,76,60,0.4);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero-section h1 {
+            font-size: 58px;
+            font-weight: 700;
+            line-height: 1.15;
+            max-width: 800px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .hero-section h1 span { color: #e74c3c; }
+
+        .hero-section .sub {
+            font-size: 17px;
+            color: rgba(255,255,255,0.65);
+            max-width: 560px;
+            line-height: 1.8;
+            margin-bottom: 38px;
+            position: relative;
+        }
+
+        .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+        .btn-red {
+            padding: 14px 34px;
+            background: #e74c3c;
+            color: #fff;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .btn-red:hover { background: #c0392b; transform: translateY(-2px); }
+
+        .btn-outline-white {
+            padding: 14px 34px;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: #fff;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: border-color 0.2s;
+        }
+
+        .btn-outline-white:hover { border-color: #fff; }
+
+        
+        .stats-strip {
+            background: #f8f9fa;
+            padding: 50px 64px;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stat-box { text-align: center; }
+
+        .stat-box .num {
+            font-size: 38px;
+            font-weight: 700;
+            color: #e74c3c;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-box .txt {
+            font-size: 13px;
+            color: #777;
+            font-weight: 500;
+        }
+
+       
+        #services {
+            padding: 90px 64px;
+            background: #fff;
+        }
+
+        #services .sec-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: #e74c3c;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        #services h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 14px;
+        }
+
+        #services .intro-p {
+            font-size: 15px;
+            color: #666;
+            max-width: 520px;
+            line-height: 1.8;
+            margin-bottom: 50px;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .svc-card {
+            padding: 34px 28px;
+            border: 1px solid #edf0f5;
+            border-radius: 10px;
+            transition: box-shadow 0.25s, transform 0.2s, border-color 0.2s;
+        }
+
+        .svc-card:hover {
+            box-shadow: 0 10px 30px rgba(231,76,60,0.1);
+            transform: translateY(-4px);
+            border-color: #e74c3c;
+        }
+
+        .svc-card .svc-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .svc-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .svc-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.75;
+        }
+
+       
+        #how {
+            background: #1a1a2e;
+            padding: 90px 64px;
+            color: #fff;
+        }
+
+        #how .sec-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: #e74c3c;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        #how h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+        .steps-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .step-box { position: relative; padding-left: 20px; }
+
+        .step-box .s-num {
+            font-size: 48px;
+            font-weight: 700;
+            color: rgba(231,76,60,0.25);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .step-box h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .step-box p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.75;
+        }
+
+      
+        #testimonials {
+            padding: 90px 64px;
+            background: #f8f9fa;
+        }
+
+        #testimonials .sec-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: #e74c3c;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        #testimonials h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 44px;
+        }
+
+        .testi-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .testi-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+            border-left: 4px solid #e74c3c;
+        }
+
+        .testi-box .stars {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #f39c12;
+        }
+
+        .testi-box .quote {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 18px;
+        }
+
+        .testi-box .person {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .testi-box .role {
+            font-size: 12px;
+            color: #999;
+        }
+
+       
+        #cta {
+            padding: 90px 64px;
+            background: #e74c3c;
+            text-align: center;
+            color: #fff;
+        }
+
+        #cta h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        #cta p {
+            font-size: 16px;
+            opacity: 0.85;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white-solid {
+            display: inline-block;
+            padding: 14px 38px;
+            background: #fff;
+            color: #e74c3c;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-white-solid:hover { opacity: 0.9; }
+
+       
+        footer {
+            background: #0d0d1a;
+            color: #666;
+            text-align: center;
+            padding: 28px;
+            font-size: 13px;
+        }
+
+        footer span { color: #e74c3c; }
+
+       
+        @media (max-width: 768px) {
+            header { padding: 14px 20px; }
+            .hero-section h1 { font-size: 34px; }
+            .hero-section { padding: 60px 20px; }
+            #services, #how, #testimonials, #cta { padding: 60px 20px; }
+            .stats-strip { padding: 40px 20px; gap: 40px; }
+        }
+
+    </style>
+</head>
+<body>
+
+
+<header>
+    <a href="#" class="site-logo">Shreya<span>Works</span></a>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#how">Process</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#cta" class="hdr-btn">Start Project</a>
+    </nav>
+</header>
+
+
+<section class="hero-section">
+    <span class="hero-badge">Web Development Studio</span>
+    <h1>We Build Websites That <span>Actually Work</span></h1>
+    <p class="sub">Our design, development, and launch of digital products that yield tangible results for your business ranges from simple landing pages to multi-million dollar web apps.</p>
+    <div class="hero-actions">
+        <a href="#cta" class="btn-red">Start a Project</a>
+        <a href="#services" class="btn-outline-white">See Our Services</a>
+    </div>
+</section>
+
+
+<div class="stats-strip">
+    <div class="stat-box">
+        <div class="num">120+</div>
+        <div class="txt">Projects Done</div>
+    </div>
+    <div class="stat-box">
+        <div class="num">98%</div>
+        <div class="txt">Client Satisfaction</div>
+    </div>
+    <div class="stat-box">
+        <div class="num">5+</div>
+        <div class="txt">Years Experience</div>
+    </div>
+    <div class="stat-box">
+        <div class="num">40+</div>
+        <div class="txt">Happy Clients</div>
+    </div>
+</div>
+
+
+<section id="services">
+    <p class="sec-label">What We Offer</p>
+    <h2>Our Services</h2>
+    <p class="intro-p">We adhere to a simple approach, where you provide us with the necessary information and construct an appropriate structure.' Good work, punctually delivered - no need for hype.</p>
+
+    <div class="services-list">
+        <div class="svc-card">
+            <span class="svc-icon">🌐</span>
+            <h3>Web Development</h3>
+            <p>Websites that utilize clean HTML, CSS, and JavaScript. It is fast-loading, mobile-friendly and easy to maintain.</p>
+        </div>
+        <div class="svc-card">
+            <span class="svc-icon">🚀</span>
+            <h3>Landing Pages</h3>
+            <p>Product launches and marketing campaigns with high conversion rates. Designed to convert visitors into customers and leads.cl.</p>
+         
+        </div>
+        <div class="svc-card">
+            <span class="svc-icon">📱</span>
+            <h3>Responsive Design</h3>
+            <p>Our website creations are designed to look good on phones, tablets, and desktops.</p>
+        </div>
+        <div class="svc-card">
+            <span class="svc-icon">⚡</span>
+            <h3>Speed Optimisation</h3>
+            <p>Slow websites lose visitors. We examine and optimize your website to ensure swift loading times and high scores on Core Web Vitals.</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="how">
+    <p class="sec-label">Our Process</p>
+    <h2>How It Works</h2>
+    <div class="steps-row">
+        <div class="step-box">
+            <div class="s-num">01</div>
+            <h3>Discovery Call</h3>
+            <p>We start with a brief conversation, exploring your objectives, timeliness and potential for success.</p>
+        </div>
+        <div class="step-box">
+            <div class="s-num">02</div>
+            <h3>Design Phase</h3>
+            <p>They create and assess wireframes and mockups.. Until the direction is satisfactory, we will keep revising it.</p>
+        </div>
+        <div class="step-box">
+            <div class="s-num">03</div>
+            <h3>Development</h3>
+            <p>Version control from the beginning, code that is clean. Your view of progress throughout the entire construction process is available to you.</p>
+        </div>
+        <div class="step-box">
+            <div class="s-num">04</div>
+            <h3>Launch & Support</h3>
+            <p>We handle deployment and testing. A month's worth of support is included with every project after its launch.</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="testimonials">
+    <p class="sec-label">Why Choose Us</p>
+    <h2>What We Bring to the Table</h2>
+    <div class="testi-row">
+        <div class="testi-box">
+            <div class="stars">🎯</div>
+            <p class="quote">"We prioritize clean, speedy, and efficient websites that meet the needs of your business, eliminating unnecessary clutter."</p>
+            <div class="person">Clear Goals</div>
+            <div class="role">Every project starts with understanding your vision first</div>
+        </div>
+        <div class="testi-box">
+            <div class="stars">⚡</div>
+            <p class="quote">"Both the speed of delivery and performance are important factors to consider. "We prioritize building optimized sites and delivering on-time delivery".</p>
+            <div class="person">Fast Delivery</div>
+            <div class="role">On-time results with quality you can see</div>
+        </div>
+        <div class="testi-box">
+            <div class="stars">🤝</div>
+            <p class="quote">"Our communication is straightforward and uncomplicated, with no jargon or frivolity involved, only accurate information".</p>
+            <div class="person">Honest Process</div>
+            <div class="role">Transparent work from start to finish</div>
+        </div>
+    </div>
+</section>
+
+
+<section id="cta">
+    <h2>Ready to Build Something?</h2>
+    <p>Tell us about your project. There are no responsibilities or technicalities involved, just a straightforward discussion about what you require.</p>
+    <a href="mailto:hello@webworks.example" class="btn-white-solid">Get in Touch</a>
+</section>
+<footer>
+    <p>&copy; 2026 <span>Shreya Shukla</span>. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
